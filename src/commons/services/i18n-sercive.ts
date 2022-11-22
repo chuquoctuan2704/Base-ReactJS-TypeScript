@@ -3,12 +3,6 @@ import { initReactI18next, useTranslation } from 'react-i18next'
 import en from '../../assets/i18n/en.json'
 import vi from '../../assets/i18n/vi.json'
 
-// Thay thế bằng phương thức lưu trữ ngôn ngữ từ server
-// export function getLanguage(): string {
-//   const locale = 'en'
-//   return locale
-// }
-
 const resources = {
   en: { translation: en },
   vi: { translation: vi },
