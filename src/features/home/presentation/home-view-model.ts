@@ -1,0 +1,4 @@
+
+export function HomeViewModel() {
+  return {}
+}

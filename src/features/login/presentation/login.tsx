@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
-import { useNavigate } from 'react-router-dom'
+import { LoginViewModel } from './login-view-model'
 
 const Button = styled.button`
     color: black;
@@ -10,12 +10,10 @@ const Button = styled.button`
 `
 
 export function Login(): ReactElement {
-  const navigate = useNavigate()
+  const { gotohome } = LoginViewModel()
   return (
-    <Button onClick={()=>{
-      navigate('/')
-    }}>
-        button
+    <Button onClick={()=>gotohome()}>
+        Login
     </Button>
   )
 }

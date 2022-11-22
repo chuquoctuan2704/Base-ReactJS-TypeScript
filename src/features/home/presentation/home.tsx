@@ -4,6 +4,12 @@ import { useNavigate } from 'react-router-dom'
 import { debug } from '../../../commons/common-utils'
 import { useTranslation } from 'react-i18next'
 
+const HomeContainer = styled.div`
+width: 100%;
+height: auto;
+padding: 10px;
+background-color: blue;
+`
 const ButtonToLogin = styled.button`
     color: black;
     width: 100px;
@@ -22,7 +28,7 @@ export function Home(): ReactElement {
   const clickTitle = useMemo(() => t('translations.Hello'), [t])
   const navigate = useNavigate()
   return (
-    <div> 
+    <HomeContainer> 
       <ButtonToLogin onClick={() => {
         navigate('/login')
       }}>
@@ -36,8 +42,9 @@ export function Home(): ReactElement {
           i18n.changeLanguage('en')
         }
       }}>
-        {clickTitle}
+        Change Language
       </ButtonClick>
-    </div>
+      {clickTitle}
+    </HomeContainer>
   )
 }

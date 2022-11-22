@@ -1,10 +1,11 @@
 import React, { ReactElement } from 'react'
 import { QueryClient, QueryClientProvider } from 'react-query'
-import './App.css'
 import { Router } from './features/router'
 import { I18nProvider } from './providers/i18n-provider'
 
 const queryClient = new QueryClient()
+
+// export const navigate = useNavigate()
 
 export function App(): ReactElement {
   return (

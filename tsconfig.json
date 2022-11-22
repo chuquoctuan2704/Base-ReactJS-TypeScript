@@ -18,10 +18,4 @@
   },
   "include": ["src", "main.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }],
-  "baseUrl": "./",                          /* Base directory to resolve non-absolute module names. */
-    "paths": {                                /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
-      "~/*": [
-        "src/*"
-      ]
-    },
 }
