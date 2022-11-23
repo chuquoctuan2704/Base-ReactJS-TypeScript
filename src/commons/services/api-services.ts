@@ -1,5 +1,9 @@
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios'
+import { LoginModel } from '../../features/login/data/dto/login-model'
+import { LoginResponse } from '../../features/login/domain/entities/login-response'
 import { debug } from '../common-utils'
+import { Constant } from '../constant/constant'
+import { Result } from '../network/result'
 
 export const requestHeaders = {
   'Content-Type': 'application/json',
@@ -44,78 +48,14 @@ apiService.interceptors.response.use(
 )
 
 /////////////// Example
-// export type Notice = {
-//     id: string
-//     title: string
-//     content: string
-//     createdAt: string
-//   }
   
-// export type NoticeApiResult = {
-//     result: boolean
-//     data: {
-//       notices: {
-//         results: Notice[]
-//         total: number
-//       }
-//     }
-//   }
-  
-// export async function requestNotices(
-//   token: string,
-//   page: number,
-//   language = 'ko',
-// ): Promise<{ notices: Notice[]; total: number }> {
-//   const urlPath = MOBILE_API_PATHS.GET_NOTICES
-//   const url = `${mobileBaseUrl}${urlPath}`
-  
-//   const requestConfig: AxiosRequestConfig = {
-//     headers: {
-//       Authorization: `Bearer ${token}`,
-//     },
-//     params: {
-//       page,
-//       rpp: NOTICES_PER_PAGE,
-//       language,
-//     },
-//   }
-  
-//   const result: AxiosResponse<NoticeApiResult> = await luniverseAxios.get(url, requestConfig)
-  
-//   return { notices: result.data.data.notices.results, total: result.data.data.notices.total }
-// }
-
-
-// export type PasswordChangeApiResponse = {
-//     result: boolean
-//   }
-  
-// export async function requestChangePasswordWithVault(
-//   token: string,
-//   oldPassword: string,
-//   newPassword: string,
-//   encryptedDidInfo: string,
-// ): Promise<boolean> {
-//   const decodedToken: { data: { accountId: string } } = jwtDecode(token)
-//   const { accountId } = decodedToken.data
-  
-//   const urlPath = MOBILE_API_PATHS.CHANGE_PASSWORD_WITH_VAULT.replace(URL_PATH_TO_REPLACE.ACCOUNT_ID, accountId)
-//   const url = `${mobileBaseUrl}${urlPath}`
-  
-//   const data = {
-//     oldPassword,
-//     newPassword,
-//     encryptedDidInfo,
-//   }
-  
-//   const requestConfig: AxiosRequestConfig = {
-//     headers: {
-//       Authorization: `Bearer ${token}`,
-//     },
-//   }
-  
-//   const result: AxiosResponse<PasswordChangeApiResponse> = await luniverseAxios.post(url, data, requestConfig)
-  
-//   return result.data.result
-// }
-  
+export async function callApiLogin(user: LoginModel): Promise<AxiosResponse<Result<LoginResponse>>> {
+  const url = Constant.URL + '/linkToAPI'
+  const requestConfig: AxiosRequestConfig = {
+    headers: {
+      Authorization: 'Bearer',
+    }
+  }
+  const result: AxiosResponse<Result<LoginResponse>> = await apiService.post(url, user, requestConfig)
+  return result
+}

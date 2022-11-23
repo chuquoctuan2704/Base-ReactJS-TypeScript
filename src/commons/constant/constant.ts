@@ -1,6 +1,6 @@
 
 export const Constant = {
-  URL: '',
+  URL: 'http://google.com',
   NUMBER: 0
 }
 
