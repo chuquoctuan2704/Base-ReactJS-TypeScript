@@ -9,14 +9,14 @@ import { Result } from '../network/result'
 export const apiService = axios.create({
   timeout: 30000,
   headers: {
-    'Content-Type': 'application/json',
-    Authorization: 'Bearer ' + token
+    'Content-Type': 'application/json'
   }
 })
 axios.defaults.headers.common.Authorization = 'Bearer lalala}'
 apiService.interceptors.request.use(
   (config) => {
     const { url, method } = config
+    config.headers = { ...config.headers, Authorization: 'Bearer ' + token }
     debug('axios request succeeded')
     debug(`method: ${method ?? 'undefined'}, url: ${url ?? 'undefined'}`)
     debug(`headers: ${JSON.stringify(config.headers, null, 2)}`)

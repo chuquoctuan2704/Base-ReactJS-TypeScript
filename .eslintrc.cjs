@@ -36,5 +36,8 @@ module.exports = {
     "@typescript-eslint/no-misused-promises": "off",
     "@typescript-eslint/no-floating-promises": "off",
     "comma-dangle": ["off", "never"],
+    "space-before-function-paren": "off",
+    "@typescript-eslint/space-before-function-paren": "off",
+    "@typescript-eslint/consistent-type-definitions": "off"
   }
 }

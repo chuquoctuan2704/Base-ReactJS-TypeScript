@@ -12,7 +12,7 @@ const Button = styled.button`
   height: 40px;
   background-color: white;
 `
-const TextView = styled.text``
+const TextView = styled.div``
 
 export function Login (): ReactElement {
   const { testText, text, gotohome, call } = loginViewModel()

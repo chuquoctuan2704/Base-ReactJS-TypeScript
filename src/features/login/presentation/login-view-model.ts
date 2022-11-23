@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
 import { debug } from '../../../commons/common-utils'
 import { textState } from '../../../commons/recoil/home-recoil'
+import { PreferencesContext } from '../../../providers/preferences-provider'
 import { LoginLocalDatasource } from '../data/datasources/login-local-datasource'
 import { LoginRemoteDatasource } from '../data/datasources/login-remote-datasources'
 import { type LoginModel } from '../data/dto/login-model'
@@ -13,6 +14,7 @@ export function loginViewModel () {
   const navigate = useNavigate()
   const [text, setText] = useRecoilState(textState)
   const [testText, setTestText] = useState('')
+  const { setPreferences } = useContext(PreferencesContext)
 
   const loginUsecase = new LoginUsecase(
     new LoginRepositoryImpl(new LoginRemoteDatasource(), new LoginLocalDatasource())
@@ -31,6 +33,7 @@ export function loginViewModel () {
       (result) => {
         debug('done ======', result)
         setTestText(JSON.stringify(result))
+        setPreferences({ selectedId: 'Preferences la day' })
       },
       (reject) => {
         debug('false ======', reject)
