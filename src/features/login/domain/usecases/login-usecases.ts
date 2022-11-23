@@ -5,13 +5,13 @@ import { LoginRepository } from '../../data/repositories/login-repository'
 import { LoginResponse, ValidateEmailResponse, ValidatePasswordResponse } from '../entities/login-response'
 
 export class LoginUsecase {
-  constructor(private loginRepository: LoginRepository) {}
+  constructor (private readonly loginRepository: LoginRepository) {}
 
-  async login(user: LoginModel): Promise<Result<LoginResponse>> {
+  async login (user: LoginModel): Promise<Result<LoginResponse>> {
     let result!: Result<LoginResponse>
     try {
       const res = await this.loginRepository.login(user)
-      if (res) {
+      if (res != null) {
         result = res
       }
     } catch (error) {
@@ -20,7 +20,7 @@ export class LoginUsecase {
     return result
   }
 
-  checkValidateEmail(email: string): Promise<ValidateEmailResponse> {
+  async checkValidateEmail (email: string): Promise<ValidateEmailResponse> {
     let result!: Promise<ValidateEmailResponse>
     try {
       const res = this.loginRepository.checkValidateEmail(email)
@@ -30,10 +30,10 @@ export class LoginUsecase {
     } catch (error) {
       throw AppError.from(error)
     }
-    return result
+    return await result
   }
 
-  checkValidatePassword(password: string): Promise<ValidatePasswordResponse> {
+  async checkValidatePassword (password: string): Promise<ValidatePasswordResponse> {
     let result!: Promise<ValidatePasswordResponse>
     try {
       const res = this.loginRepository.checkValidatePassword(password)
@@ -43,6 +43,6 @@ export class LoginUsecase {
     } catch (error) {
       throw AppError.from(error)
     }
-    return result
+    return await result
   }
 }

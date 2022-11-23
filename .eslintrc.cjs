@@ -1,39 +1,40 @@
 module.exports = {
-  'env': {
-    'browser': true,
-    'es2021': true
+  env: {
+    browser: true,
+    es2021: true
   },
-  'extends': [
-    'eslint:recommended',
+  extends: [
     'plugin:react/recommended',
+    'standard-with-typescript',
+    "plugin:import/typescript",
+    'eslint:recommended',
     'plugin:@typescript-eslint/recommended'
   ],
-  'overrides': [
+  overrides: [
+    {
+      'files': ['*.ts', '*.tsx'],
+      'rules': {
+        '@typescript-eslint/no-shadow': ['error'],
+        'no-shadow': 'off',
+        'no-undef': 'off',
+      },
+    },
   ],
-  'parser': '@typescript-eslint/parser',
-  'parserOptions': {
-    'ecmaVersion': 'latest'
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    project: ['./tsconfig.json', './vite.config.ts']
   },
-  'plugins': [
+  plugins: [
     'react',
-    '@typescript-eslint'
+    '@typescript-eslint',
+    "prettier"
   ],
-  'rules': {
-    'indent': [
-      'error',
-      2
-    ],
-    'linebreak-style': [
-      'error',
-      'unix'
-    ],
-    'quotes': [
-      'error',
-      'single'
-    ],
-    'semi': [
-      'error',
-      'never'
-    ]
+  rules: {
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/strict-boolean-expressions": "off",
+    "@typescript-eslint/no-misused-promises": "off",
+    "@typescript-eslint/no-floating-promises": "off",
+    "comma-dangle": ["off", "never"],
   }
 }

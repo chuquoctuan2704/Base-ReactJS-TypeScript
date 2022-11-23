@@ -4,12 +4,12 @@ import { ErrorCode } from './error-code'
 export class AppError extends Error {
   errorCode: ErrorCode
 
-  constructor(error: unknown, errorCode: ErrorCode) {
+  constructor (error: unknown, errorCode: ErrorCode) {
     super(getErrorMessage(error))
     this.errorCode = errorCode
   }
 
-  static from(error: unknown, _errorCode?: ErrorCode): AppError {
+  static from (error: unknown, _errorCode?: ErrorCode): AppError {
     let parsedError: AppError
 
     if (error instanceof AppError) {

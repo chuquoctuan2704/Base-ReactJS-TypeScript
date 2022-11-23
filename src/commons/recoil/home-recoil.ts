@@ -7,9 +7,9 @@ export const textState = atom({
 
 export const textLenght = selector({
   key: 'charCountState',
-  get: ({get}) => {
+  get: ({ get }) => {
     const text = get(textState)
 
     return text.length
-  },
+  }
 })

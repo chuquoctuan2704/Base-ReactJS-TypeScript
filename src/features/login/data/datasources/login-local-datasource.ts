@@ -2,8 +2,9 @@ import validator from 'validator'
 import { ValidateEmailResponse, ValidatePasswordResponse } from '../../domain/entities/login-response'
 
 export class LoginLocalDatasource {
-  regexPass = RegExp('^(?=.*[A-Za-z])(?=.*d)[A-Za-zd]{8,}$')
-  checkValidateEmail = (email: string): Promise<ValidateEmailResponse> => {
+  regexPass = /^(?=.*[A-Za-z])(?=.*d)[A-Za-zd]{8,}$/
+
+  checkValidateEmail = async (email: string): Promise<ValidateEmailResponse> => {
     let isValid = false
     let message = ''
     if (email.length === 0) {
@@ -16,13 +17,13 @@ export class LoginLocalDatasource {
       isValid = false
       message = 'Khong dung dinh dang email'
     }
-    return Promise.resolve({
-      isValid: isValid,
-      message: message,
+    return await Promise.resolve({
+      isValid,
+      message
     })
   }
 
-  checkValidatePassword = (pass: string): Promise<ValidatePasswordResponse> => {
+  checkValidatePassword = async (pass: string): Promise<ValidatePasswordResponse> => {
     let isValid = false
     let message = ''
     if (pass.length === 0) {
@@ -38,9 +39,9 @@ export class LoginLocalDatasource {
       isValid = true
       message = ''
     }
-    return Promise.resolve({
-      isValid: isValid,
-      message: message,
+    return await Promise.resolve({
+      isValid,
+      message
     })
   }
 }

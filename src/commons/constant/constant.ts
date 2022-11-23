@@ -1,10 +1,9 @@
-
 export const Constant = {
-  URL: 'http://google.com',
+  URL: 'https://jsonplaceholder.typicode.com/posts/1',
   NUMBER: 0
 }
 
-export type SettingMenuInfo = {
-    title: string
-    description: string
-  }
+export interface SettingMenuInfo {
+  title: string
+  description: string
+}

@@ -1,13 +1,13 @@
 export interface LoginResponse {
-    token: string
-  }
-  
+  token: string
+}
+
 export interface ValidateEmailResponse {
-    isValid: boolean
-    message: string
-  }
-  
+  isValid: boolean
+  message: string
+}
+
 export interface ValidatePasswordResponse {
-    isValid: boolean
-    message: string
-  }
+  isValid: boolean
+  message: string
+}
