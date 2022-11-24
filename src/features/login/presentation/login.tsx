@@ -1,6 +1,6 @@
 import React, { type ReactElement } from 'react'
 import styled from 'styled-components'
-import { loginViewModel } from './login-view-model'
+import { LoginViewModel } from './login-view-model'
 
 const LoginContainer = styled.div`
   width: 100%;
@@ -15,7 +15,7 @@ const Button = styled.button`
 const TextView = styled.div``
 
 export function Login (): ReactElement {
-  const { testText, text, gotohome, call } = loginViewModel()
+  const { testText, text, gotohome, call } = LoginViewModel()
   return (
     <LoginContainer>
       <Button

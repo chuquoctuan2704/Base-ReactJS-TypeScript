@@ -1,20 +1,21 @@
-import { useContext, useState } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
 import { debug } from '../../../commons/common-utils'
+import { tokenRecoil } from '../../../commons/recoil/global-recoil'
 import { textState } from '../../../commons/recoil/home-recoil'
-import { PreferencesContext } from '../../../providers/preferences-provider'
+import { setToken } from '../../../commons/services/local-storage'
 import { LoginLocalDatasource } from '../data/datasources/login-local-datasource'
 import { LoginRemoteDatasource } from '../data/datasources/login-remote-datasources'
 import { type LoginModel } from '../data/dto/login-model'
 import { LoginRepositoryImpl } from '../data/repositories/login-repository'
 import { LoginUsecase } from '../domain/usecases/login-usecases'
 
-export function loginViewModel () {
+export function LoginViewModel () {
   const navigate = useNavigate()
   const [text, setText] = useRecoilState(textState)
   const [testText, setTestText] = useState('')
-  const { setPreferences } = useContext(PreferencesContext)
+  const [getTokenRecoil, setTokenRecoil] = useRecoilState(tokenRecoil)
 
   const loginUsecase = new LoginUsecase(
     new LoginRepositoryImpl(new LoginRemoteDatasource(), new LoginLocalDatasource())
@@ -29,11 +30,13 @@ export function loginViewModel () {
       email: 'tuancq@gmail.com',
       password: '123123123'
     }
+
     loginUsecase.login(user).then(
       (result) => {
-        debug('done ======', result)
         setTestText(JSON.stringify(result))
-        setPreferences({ selectedId: 'Preferences la day' })
+        // settoken lưu vào cache với recoil
+        setTokenRecoil('TokenRecoil example to Recoil')
+        setToken('TokenRecoil example save to localStorage')
       },
       (reject) => {
         debug('false ======', reject)

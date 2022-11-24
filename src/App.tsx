@@ -15,9 +15,7 @@ export function App (): ReactElement {
       <I18nProvider>
         {/* Quan ly va tim nap du lieu, lưu vào bộ nhớ đệm và cập nhật dữ liệu không đồng bộ trong React */}
         <QueryClientProvider client={queryClient}>
-          <PreferencesProvider>
-            <Router />
-          </PreferencesProvider>
+          <Router />
         </QueryClientProvider>
       </I18nProvider>
     </RecoilRoot>
