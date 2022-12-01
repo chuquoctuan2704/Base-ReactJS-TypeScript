@@ -1,5 +1,5 @@
 import React, { ReactElement, ReactNode, useEffect, useState } from 'react'
-import { initI18n } from '../commons/services/i18n-sercive'
+import { initI18n } from '../commons/services/i18n-service'
 import { useAsyncError } from '../commons/hook/use-async-error'
 import { debug } from '../commons/common-utils'
 

@@ -1,10 +1,10 @@
 import axios, { AxiosError, AxiosResponse } from 'axios'
 import { LoginModel } from '../../features/login/data/dto/login-model'
 import { LoginResponse } from '../../features/login/domain/entities/login-response'
-import { token } from '../../features/router'
 import { debug } from '../common-utils'
 import { Constant } from '../constant/constant'
 import { Result } from '../network/result'
+import { getToken } from './local-storage'
 
 export const apiService = axios.create({
   timeout: 30000,
@@ -12,12 +12,11 @@ export const apiService = axios.create({
     'Content-Type': 'application/json'
   }
 })
-axios.defaults.headers.common.Authorization = 'Bearer lalala}'
 apiService.interceptors.request.use(
   (config) => {
     const { url, method } = config
-    config.headers = { ...config.headers, Authorization: 'Bearer ' + token }
-    debug('axios request succeeded')
+    config.headers = { ...config.headers, Authorization: 'Bearer ' + getToken() }
+    debug('axios request succeeded ---------------------------------')
     debug(`method: ${method ?? 'undefined'}, url: ${url ?? 'undefined'}`)
     debug(`headers: ${JSON.stringify(config.headers, null, 2)}`)
     debug(`params: ${JSON.stringify(config.params, null, 2)}`)
@@ -49,7 +48,6 @@ apiService.interceptors.response.use(
 /// //////////// Example
 
 export async function callApiLogin (user: LoginModel): Promise<AxiosResponse<Result<LoginResponse>>> {
-  const url = Constant.URL
-  const result: AxiosResponse<Result<LoginResponse>> = await apiService.get(url)
+  const result: AxiosResponse<Result<LoginResponse>> = await apiService.get(Constant.URL)
   return result
 }

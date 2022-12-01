@@ -1,15 +1,15 @@
-import { ReactElement } from "react"
-import { Outlet } from "react-router-dom"
-import styled from "styled-components"
-import { Footer } from "../footer/footer"
-import Header from "../header/header"
+import React, { ReactElement } from 'react'
+import { Outlet } from 'react-router-dom'
+import styled from 'styled-components'
+import { Footer } from '../footer/footer'
+import Header from '../header/header'
 
 const HeaderContainer = styled.div``
 const FooterContainer = styled.div``
 const MainContetn = styled.div``
 
-export function Layout() {
-    return (
+export function Layout(): ReactElement {
+  return (
         <div>
           <HeaderContainer>
             <Header/>
@@ -21,5 +21,5 @@ export function Layout() {
             <Footer/>
           </FooterContainer>
         </div>
-      )
+  )
 }

@@ -1,7 +1,7 @@
-import { ReactElement } from "react";
-import { LoginViewModel } from "../login-view-model";
+import React, { ReactElement } from 'react'
+import { LoginViewModel } from '../login-view-model'
 
 export function FormLogin(): ReactElement {
-    const { text } = LoginViewModel()
-    return <></>
+  const { text } = LoginViewModel()
+  return <>{text}</>
 }
