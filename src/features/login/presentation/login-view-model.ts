@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
-import { debug } from '../../../commons/common-utils'
 import { textState } from '../../../commons/recoil/home-recoil'
 import { setToken } from '../../../commons/services/local-storage'
 import { LoginLocalDatasource } from '../data/datasources/login-local-datasource'
@@ -9,6 +8,9 @@ import { LoginRemoteDatasource } from '../data/datasources/login-remote-datasour
 import { type LoginModel } from '../data/dto/login-model'
 import { LoginRepositoryImpl } from '../data/repositories/login-repository'
 import { LoginUsecase } from '../domain/usecases/login-usecases'
+import Debug from 'debug'
+
+const debug = Debug('I18nProvider:')
 
 export function LoginViewModel () {
   const navigate = useNavigate()

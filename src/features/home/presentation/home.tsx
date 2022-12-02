@@ -3,6 +3,9 @@ import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 import { setLanguageCode } from '../../../commons/services/local-storage'
 import { HomeViewModel } from './home-view-model'
+import Debug from 'debug'
+
+const debug = Debug('Home:')
 
 const HomeContainer = styled.div`
   width: 100%;
@@ -32,6 +35,7 @@ export function Home (): ReactElement {
       <ButtonToLogin
         onClick={() => {
           goToLogin()
+          debug('new')
         }}>
         go to login
       </ButtonToLogin>

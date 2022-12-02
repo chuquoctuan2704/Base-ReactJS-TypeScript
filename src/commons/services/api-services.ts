@@ -1,10 +1,12 @@
 import axios, { AxiosError, AxiosResponse } from 'axios'
 import { LoginModel } from '../../features/login/data/dto/login-model'
 import { LoginResponse } from '../../features/login/domain/entities/login-response'
-import { debug } from '../common-utils'
 import { Constant } from '../constant/constant'
 import { Result } from '../network/result'
 import { getToken } from './local-storage'
+import Debug from 'debug'
+
+const debug = Debug('APISercices:')
 
 export const apiService = axios.create({
   timeout: 30000,

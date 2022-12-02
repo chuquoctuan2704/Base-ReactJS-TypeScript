@@ -1,7 +1,9 @@
 import { useNavigate } from 'react-router-dom'
 import { useRecoilState, useRecoilValue } from 'recoil'
-import { debug } from '../../../commons/common-utils'
 import { textLenght, textState } from '../../../commons/recoil/home-recoil'
+import Debug from 'debug'
+
+const debug = Debug('HomeViewModel:')
 
 export function HomeViewModel () {
   const [text, setText] = useRecoilState(textState)
