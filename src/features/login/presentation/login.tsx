@@ -1,6 +1,10 @@
-import React, { type ReactElement } from 'react'
+import React, { useEffect, type ReactElement } from 'react'
+import { useLocation, useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import { LoginViewModel } from './login-view-model'
+import Debug from 'debug'
+
+const debug = Debug('LoginView:')
 
 const LoginContainer = styled.div`
   width: 100%;
@@ -14,8 +18,15 @@ const Button = styled.button`
 `
 const TextView = styled.div``
 
-export function Login (): ReactElement {
+export function Login(): ReactElement {
   const { testText, text, gotohome, call } = LoginViewModel()
+
+  const { search } = useLocation()
+  useEffect(() => {
+    debug(new URLSearchParams(search).get('sort'), '-----------------')
+    debug(search, '-----------------')
+  }, [search])
+
   return (
     <LoginContainer>
       <Button

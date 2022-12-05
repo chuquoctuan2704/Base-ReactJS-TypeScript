@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, createSearchParams } from 'react-router-dom'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { textLenght, textState } from '../../../commons/recoil/home-recoil'
 import Debug from 'debug'
@@ -9,10 +9,13 @@ export function HomeViewModel () {
   const [text, setText] = useRecoilState(textState)
   const count = useRecoilValue(textLenght)
   const navigate = useNavigate()
+  const params = {
+    sort: "a"
+  }
 
   function goToLogin () {
     debug(count)
-    navigate('/login')
+    navigate({pathname:'/login', search: `?${createSearchParams(params)}`,})
   }
 
   return {
