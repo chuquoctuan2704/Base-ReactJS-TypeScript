@@ -1,10 +1,10 @@
 import axios, { AxiosError, AxiosResponse } from 'axios'
-import { LoginModel } from '../../features/login/data/dto/login-model'
-import { LoginResponse } from '../../features/login/domain/entities/login-response'
+import Debug from 'debug'
+import { LoginModelDto } from '~/core/data/dto/login/login-model-dto'
+import { LoginResponse } from '~/core/domain/entities/login/login-response'
 import { Constant } from '../constant/constant'
 import { Result } from '../network/result'
 import { getToken } from './local-storage'
-import Debug from 'debug'
 
 const debug = Debug('APISercices:')
 
@@ -49,7 +49,7 @@ apiService.interceptors.response.use(
 
 /// //////////// Example
 
-export async function callApiLogin (user: LoginModel): Promise<AxiosResponse<Result<LoginResponse>>> {
-  const result: AxiosResponse<Result<LoginResponse>> = await apiService.get(Constant.URL)
+export async function callApiLogin (user: LoginModelDto): Promise<AxiosResponse<Result<LoginResponse>>> {
+  const result: AxiosResponse<Result<LoginResponse>> = await apiService.post(Constant.URL, user)
   return result
 }

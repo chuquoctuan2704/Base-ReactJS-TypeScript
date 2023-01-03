@@ -12,12 +12,6 @@ export async function initI18n (debug: boolean): Promise<TFunction> {
   return await i18next.use(initReactI18next).init({
     debug,
     fallbackLng: 'en',
-    resources,
-    interpolation: {
-      escapeValue: false // not needed for react as it escapes by default
-    },
-    react: {
-      useSuspense: false
-    }
+    resources
   })
 }

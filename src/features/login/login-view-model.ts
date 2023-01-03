@@ -1,14 +1,14 @@
+import Debug from 'debug'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useRecoilState } from 'recoil'
-import { textState } from '../../../commons/recoil/home-recoil'
-import { setToken } from '../../../commons/services/local-storage'
-import { LoginLocalDatasource } from '../data/datasources/login-local-datasource'
-import { LoginRemoteDatasource } from '../data/datasources/login-remote-datasources'
-import { type LoginModel } from '../data/dto/login-model'
-import { LoginRepositoryImpl } from '../data/repositories/login-repository'
-import { LoginUsecase } from '../domain/usecases/login-usecases'
-import Debug from 'debug'
+import { LoginLocalDatasource } from '~/core/data/datasources/login/login-local-datasource'
+import { LoginRemoteDatasource } from '~/core/data/datasources/login/login-remote-datasources'
+import { LoginModel } from '~/core/data/dto/login/login-model'
+import { LoginRepositoryImpl } from '~/core/data/repositories/login/login-repository'
+import { LoginUsecase } from '~/core/domain/usecases/login/login-usecases'
+import { textState } from '../../commons/recoil/home-recoil'
+import { setToken } from '../../commons/services/local-storage'
 
 const debug = Debug('I18nProvider:')
 

@@ -1,11 +1,11 @@
-import { atom, selector } from 'recoil'
+import { atom, RecoilState, RecoilValueReadOnly, selector } from 'recoil'
 
-export const globalRecoil = atom({
+export const globalRecoil: RecoilState<string> = atom({
   key: 'global',
   default: 'a'
 })
 
-export const tokenSelector = selector({
+export const tokenSelector: RecoilValueReadOnly<string> = selector({
   key: 'tokenSelector',
   get: async ({ get }) => {
     const text = get(globalRecoil)

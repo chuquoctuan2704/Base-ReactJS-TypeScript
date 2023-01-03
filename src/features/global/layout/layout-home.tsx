@@ -8,7 +8,7 @@ const HeaderContainer = styled.div``
 const FooterContainer = styled.div``
 const MainContetn = styled.div``
 
-export function Layout(): ReactElement {
+export function LayoutHome(): ReactElement {
   return (
         <div>
           <HeaderContainer>

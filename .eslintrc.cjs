@@ -22,7 +22,7 @@ module.exports = {
   ],
   parserOptions: {
     ecmaVersion: 'latest',
-    sourceType: 'module',
+    sourceType: 'module', // Allows for the use of imports
     project: ['./tsconfig.json']
   },
   plugins: [
@@ -38,6 +38,7 @@ module.exports = {
     "comma-dangle": ["off", "never"],
     "space-before-function-paren": "off",
     "@typescript-eslint/space-before-function-paren": "off",
-    "@typescript-eslint/consistent-type-definitions": "off"
+    "@typescript-eslint/consistent-type-definitions": "off",
+    "@typescript-eslint/restrict-template-expressions": "off"
   }
 }

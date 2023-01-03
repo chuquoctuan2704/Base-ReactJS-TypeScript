@@ -1,8 +1,9 @@
-import { Result } from '../../../../commons/network/result'
-import { LoginResponse, ValidateEmailResponse, ValidatePasswordResponse } from '../../domain/entities/login-response'
-import { LoginLocalDatasource } from '../datasources/login-local-datasource'
-import { LoginRemoteDatasource } from '../datasources/login-remote-datasources'
-import { LoginModel } from '../dto/login-model'
+
+import { Result } from '~/commons/network/result'
+import { LoginResponse, ValidateEmailResponse, ValidatePasswordResponse } from '../../../domain/entities/login/login-response'
+import { LoginLocalDatasource } from '../../datasources/login/login-local-datasource'
+import { LoginRemoteDatasource } from '../../datasources/login/login-remote-datasources'
+import { LoginModel } from '../../dto/login/login-model-dto'
 
 export interface LoginRepository {
   login: (user: LoginModel) => Promise<Result<LoginResponse> | null>

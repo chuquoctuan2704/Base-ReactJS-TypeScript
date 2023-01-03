@@ -18,8 +18,9 @@
     "baseUrl": "./",
     "paths": {
       "~/*": ["src/*"]
-    }
+    },
+    "types": ["vite/client", "@types/websql"]
   },
-  "include": ["src", "main.tsx", "vite.config.ts", "declarations.d.ts"],
+  "include": ["src", "src/main.tsx", "vite.config.ts", "declarations.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }],
 }

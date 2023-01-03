@@ -1,8 +1,11 @@
-export enum ErrorCode {
+export enum StatusCode {
   UNKNOWN_ERR = 0,
-  DATABASE_CONSTRAINT_ERR = 1,
-  NETWORK_ERR = 2,
-  ILLEGAL_STATE_ERR = 3,
-  NOT_ENOUGH_VALUE_ERR = 4,
-  ESSENTIAL_DATA_MISSED = 5,
+  DONE = 200,
+  SERVER_ERROR = 500,
+  AUTH_ERROR = 401,
+}
+
+export enum ErrorCode {
+  CONNECT_TIME_OUT = 'ECONNABORTED',
+  ERR_NETWORK = 'ERR_NETWORK'
 }

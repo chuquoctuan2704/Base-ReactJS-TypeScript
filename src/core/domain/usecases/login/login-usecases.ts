@@ -1,13 +1,13 @@
-import { AppError } from '../../../../commons/network/error'
-import { Result } from '../../../../commons/network/result'
-import { LoginModel } from '../../data/dto/login-model'
-import { LoginRepository } from '../../data/repositories/login-repository'
-import { LoginResponse, ValidateEmailResponse, ValidatePasswordResponse } from '../entities/login-response'
+import { ServerError } from '~/commons/network/error'
+import { Result } from '~/commons/network/result'
+import { LoginModelDto } from '../../../data/dto/login/login-model-dto'
+import { LoginRepository } from '../../../data/repositories/login/login-repository'
+import { LoginResponse, ValidateEmailResponse, ValidatePasswordResponse } from '../../entities/login/login-response'
 
 export class LoginUsecase {
   constructor (private readonly loginRepository: LoginRepository) {}
 
-  async login (user: LoginModel): Promise<Result<LoginResponse>> {
+  async login (user: LoginModelDto): Promise<Result<LoginResponse>> {
     let result!: Result<LoginResponse>
     try {
       const res = await this.loginRepository.login(user)
@@ -15,7 +15,7 @@ export class LoginUsecase {
         result = res
       }
     } catch (error) {
-      throw AppError.from(error)
+      throw ServerError.from(error)
     }
     return result
   }
@@ -28,7 +28,7 @@ export class LoginUsecase {
         result = res
       }
     } catch (error) {
-      throw AppError.from(error)
+      throw ServerError.from(error)
     }
     return await result
   }
@@ -41,7 +41,7 @@ export class LoginUsecase {
         result = res
       }
     } catch (error) {
-      throw AppError.from(error)
+      throw ServerError.from(error)
     }
     return await result
   }

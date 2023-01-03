@@ -1,15 +1,19 @@
-import { AppError } from './error'
-
 export class Result<T> {
   data: T | null
 
-  status: boolean
+  code: number
 
-  message: AppError | undefined
+  msg: string
 
-  constructor (result: T | null, status: boolean, message?: AppError) {
+  constructor (result: T | null, code: number, msg: string) {
     this.data = result
-    this.status = status
-    this.message = message
+    this.code = code
+    this.msg = msg
   }
+}
+
+export type ResultError = {
+  data: unknown
+  code: number
+  msg: string
 }

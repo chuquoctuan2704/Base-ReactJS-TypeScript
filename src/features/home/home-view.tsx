@@ -1,7 +1,7 @@
 import React, { ReactElement, useMemo } from 'react'
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
-import { setLanguageCode } from '../../../commons/services/local-storage'
+import { setLanguageCode } from '~/commons/services/local-storage'
 import { HomeViewModel } from './home-view-model'
 import Debug from 'debug'
 
