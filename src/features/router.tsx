@@ -24,7 +24,7 @@ export function RouterApp(): ReactElement {
         <Routes>
           {/* Auth */}
           <Route element={<LayoutAuth />}>
-            <Route path="login" element={<Login />} />
+            <Route path={RouterList.LOGIN} element={<Login />} />
           </Route>
           {/* Home */}
           <Route path={RouterList.HOME} element={<LayoutHome />}>

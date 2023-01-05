@@ -35,7 +35,6 @@ export function Home (): ReactElement {
       <ButtonToLogin
         onClick={() => {
           goToLogin()
-          debug('new')
         }}>
         go to login
       </ButtonToLogin>

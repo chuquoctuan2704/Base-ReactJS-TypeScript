@@ -1,9 +1,6 @@
 import React, { ReactElement, ReactNode, useEffect, useState } from 'react'
 import { initI18n } from '../commons/services/i18n-service'
 import { useAsyncError } from '../commons/hook/use-async-error'
-import Debug from 'debug'
-
-const debug = Debug('I18nProvider:')
 
 export function I18nProvider({ children }: { children: ReactNode }): ReactElement {
   const throwError = useAsyncError()
@@ -11,7 +8,6 @@ export function I18nProvider({ children }: { children: ReactNode }): ReactElemen
   useEffect(() => {
     initI18n(import.meta.env.DEV)
       .then(() => {
-        debug('successfully initialized i18n provider')
         setI18nInitialized(true)
       })
       .catch((error: Error) => {
