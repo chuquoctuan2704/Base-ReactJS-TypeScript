@@ -14,11 +14,11 @@ if (import.meta.env.DEV) {
 // (để hiển thị debug trong console của trình duyệt. chọn "Verbose" trong "All levels")
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <RecoilRoot>
       <I18nProvider>
         <RouterApp />
       </I18nProvider>
     </RecoilRoot>
-  </React.StrictMode>
+  // </React.StrictMode>
 )
