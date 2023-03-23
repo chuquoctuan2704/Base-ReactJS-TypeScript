@@ -28,8 +28,9 @@
     "react-router-dom": "^6.4.3",
     "react-toastify": "^9.1.1",
     "recoil": "^0.7.6",
-    "slate": "^0.88.1",
-    "slate-react": "^0.88.0",
+    "slate": "0.63.0",
+    "slate-history": "0.62.0",
+    "slate-react": "0.62.0",
     "styled-components": "^5.3.6",
     "validator": "^13.7.0",
     "websql": "^2.0.3"

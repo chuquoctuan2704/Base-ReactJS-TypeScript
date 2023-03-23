@@ -1,6 +1,8 @@
+import { Descendant } from 'slate'
+
 declare module '*.svg' {
   import React = require('react')
-  export const ReactComponent: React.FC<React.SVGProps<SVGSVGElement>>
+  export const ReactComponent: React.FunctionComponent<React.SVGProps<SVGSVGElement>>
   const src: string
   export default src
 }
@@ -9,13 +11,11 @@ declare module '*.png'
 declare module '*.jpg'
 declare module '*.jpeg'
 
-// type CustomElement = { type: 'paragraph', children: CustomText[] }
-// type CustomText = { text: string }
-
-// declare module 'slate' {
-//   interface CustomTypes {
-//     Editor: BaseEditor & ReactEditor
-//     Element: CustomElement
-//     Text: CustomText
-//   }
-// }
+interface Children {
+  text?: string
+  children?: Children[]
+}
+declare interface CusDescendant extends Descendant {
+  type: 'paragraph'
+  children: Children[]
+}

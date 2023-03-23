@@ -4,9 +4,8 @@ export const Constant = {
 }
 
 export const AppColor = {
-  MAIN_COLOR: '#F8C700',
+  COLOR_BOX_SHADOWN: '#d1cccc',
   COLOR_BORDER: '#828282',
-  COLOR_BORDER_2: '#D8D8D8',
   COLOR_PRIMARY: '#f8c700'
 }
 

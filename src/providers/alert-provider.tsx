@@ -6,7 +6,7 @@ import { RouterList } from '~/features/router-list'
 import { clearUser } from '~/commons/common-utils'
 import { alertState, alertValue } from '~/commons/recoil/alert-recoil'
 import { notification } from 'antd'
-import { Loading } from '~/features/global/loading/loading'
+import { Loading } from '~/features/global/components/loading/loading'
 import { IconError, IconSuccessfully } from '~/assets/svg/svg-list'
 
 const AlertContainer = styled.div` 
@@ -68,12 +68,16 @@ export function AlertProvider(props: { children: ReactNode }): ReactElement {
       </PopupContainer>
     )
   }
-  if (alertContent.errors ?? alertContent.success) notification.open({ message: ContentAlert() })
+  const ShowAlert = useCallback(() => {
+    if (alertContent.errors ?? alertContent.success) notification.open({ message: ContentAlert() })
+    return <></>
+  }, [alertContent])
 
   return (
     <AlertContainer>
-        {alertContent.loading && <Loading />}
-        {props.children}
+      {alertContent.loading && <Loading />}
+      {ShowAlert()}
+      {props.children}
     </AlertContainer>
   )
 }
