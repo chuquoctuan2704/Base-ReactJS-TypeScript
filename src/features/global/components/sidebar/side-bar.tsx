@@ -10,6 +10,7 @@ import { AppColor } from '~/commons/constant/constant'
 import { ArrowRight } from '~/assets/svg/svg-list'
 
 const Container = styled.div`
+  flex: 1;
 `
 const SideBar = styled.div`
   height: 100%;
@@ -21,9 +22,9 @@ const SideBar = styled.div`
 `
 const Content = styled.div<{ width: string }>`
   background-color: white;
-  box-shadow: 0 0 10px ${AppColor.COLOR_BOX_SHADOWN};
+  box-shadow: 0 0 10px 0px ${AppColor.COLOR_BOX_SHADOWN};
   width: ${(props) => props.width};
-  transition: width 0.6s ease;
+  transition: width 0.5s ease-in-out;
 `
 const CancelMobile = styled.div`
   border-right: 1px solid #dfdcdc;
@@ -35,7 +36,7 @@ const CancelMobile = styled.div`
   font-size: 24px;
   margin-top: 10px;
   display: flex;
-  box-shadow: 12px 5px 10px #c4c4c457;
+  box-shadow: 2px 2px 10px #c4c4c457;
   cursor: pointer;
   padding: 0 5px;
 `
@@ -48,7 +49,7 @@ const BackgroundButtonHide = styled.div``
 const ButtonClick = styled.div<{ width: string }>`
   border-top: 3px solid #f5f5f5;
   transform: ${(props) => (props.width === '250px' ? 'translateX(0)' : 'translateX(-250px)')};
-  transition: ease-in-out 0.5s;
+  transition: cubic-bezier(0.84, 0.45, 0.24, 0.62) 0.5s;
 `
 const ButtonLink = styled.div`
   display: flex;

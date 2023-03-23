@@ -4,9 +4,11 @@ export const Constant = {
 }
 
 export const AppColor = {
+  COLOR_PRIMARY: '#f8c700',
   COLOR_BOX_SHADOWN: '#d1cccc',
   COLOR_BORDER: '#828282',
-  COLOR_PRIMARY: '#f8c700'
+  COLOR_BLUE_AQUA: 'aqua',
+  COLOR_DASH: '#D9D9D9'
 }
 
 export interface SettingMenuInfo {

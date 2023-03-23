@@ -7,6 +7,7 @@ const FooterContainer = styled.footer`
   height: 50px;
   background-color: white;
   color: black;
+  box-shadow: 0 0 10px #d1cccc;
 `
 
 export function Footer (): ReactElement {

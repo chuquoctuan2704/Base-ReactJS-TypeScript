@@ -16,6 +16,12 @@ export type NaviElement = {
 export function SidebarModel(): NaviElement[] {
   return [
     {
+      id: '0',
+      page: 'Color',
+      subElement: [],
+      src: RouterList.COLOR
+    },
+    {
       id: '1',
       page: 'Button',
       subElement: [],

@@ -15,6 +15,7 @@ import { ButtonView } from './global/list-view/button-view'
 import { CheckboxView } from './global/list-view/checkbox-view'
 import { SelectView } from './global/list-view/select-view'
 import { SlateView } from './global/list-view/slate-view'
+import { ColorView } from './global/list-view/color-view'
 
 export function RouterApp(): ReactElement {
   const { i18n, ready } = useTranslation()
@@ -33,6 +34,7 @@ export function RouterApp(): ReactElement {
             {/* Demo Component */}
             <Route path={RouterList.COMPONENT} element={<LayoutComponent />}>
               <Route index element={<ComponentView />} />
+              <Route path={RouterList.COLOR} element={<ColorView />} />
               <Route path={RouterList.BUTTON} element={<ButtonView />} />
               <Route path={RouterList.CHECK_BOX} element={<CheckboxView />} />
               <Route path={RouterList.SELECT} element={<SelectView />} />

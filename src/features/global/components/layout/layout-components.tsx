@@ -7,16 +7,25 @@ import Header from '../header/header'
 import { SidebarApp } from '../sidebar/side-bar'
 import { devices } from '../size-screen/screen-view-model'
 
+const LayoutContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 100vh;
+`
 const HeaderContainer = styled.div``
 const FooterContainer = styled.div``
 const MainContent = styled.div`
   padding-top: 60px;
   background-color: white;
-  max-width: 100%;
-  margin-inline: auto;
+  width: 100%;
+  /* margin-inline: auto; */
   display: flex;
+  flex: 1;
 `
-const SideBar = styled.div``
+const SideBar = styled.div`
+display: flex;
+`
 const Content = styled.div`
   flex: 1;
   padding: 10px 30px 10px 0;
@@ -27,7 +36,7 @@ const Content = styled.div`
 
 export function LayoutComponent(): ReactElement {
   return (
-    <>
+    <LayoutContainer>
       <HeaderContainer>
         <Header />
       </HeaderContainer>
@@ -42,6 +51,6 @@ export function LayoutComponent(): ReactElement {
       <FooterContainer>
         <Footer />
       </FooterContainer>
-    </>
+    </LayoutContainer>
   )
 }
